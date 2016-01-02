@@ -1,0 +1,33 @@
+Readme of TCP Web Server:
+
+Q:How to compile? 
+A:run 'make all' inside Debug dir
+
+Q:How to run server?
+A: ./Webserver <port-no>
+
+Q:How to run webclient?
+
+Test case1:(4 files separated by a new line in fileList.txt)(HTTP Persistent case)
+A: ./WebClient <server-ip> <port-no> p fileList.txt
+
+Test case2(Http non-persistent case):
+A: ./WebClient <server-ip> 20202 np demo.html
+
+Readme of UDP Web Server:
+
+Q:How to compile? 
+A:run 'make all' inside Debug dir
+
+Q:How to run server?
+A: ./UdpHttpServer <port-no>
+
+Q:How to run webclient?
+
+Test case1:(small Html file) 
+A: ./udpWebClient <server-ip> <port-no> demo.html
+
+Test case2(Around a megabyte file):
+A: ./udpWebClient <server-ip> <port-no> subtitleFile.txt
+
+PS: All the requested files are written into a file after recieved from the server.
