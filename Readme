@@ -1,33 +1,52 @@
-Readme of TCP Web Server:
+
+~~~~~~~~~~~~~~~~~~TCP and UDP based WebServer and WebClient~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Modules:
+1. WebServer and webclient: TCP based Web-server and client
+2. udpWebServer and udpWebClient: UDP based Web-server and client
+
+General guidelines:
+1. Each module has to be compiled individually.
+2. Port number has to be same between the server and corresponding client.
+3. All the requested files on the web client are written into a file after it is recieved from the server.
+
+Description of arguments for TCP web-server:
+Arg 1: Port number
+
+Description of arguments for TCP web-client:
+Arg 1: Web-Server IP Address
+Arg 2: Port number on which the server is listening to
+Arg 3: {p,np} where p for HTTP-persistent connection and np for non Persistent connection
+Arg 4: if arg 3 is "p" -> filename which contains the list of files that needs to be fetched from the server, else if arg 3 is "np" -> file that has be retrieved from the server
+
+Description of arguments for UDP web-server:
+Arg 1: Port number
+
+Description of arguments for UDP web-client:
+Arg 1: Web-Server IP Address
+Arg 2: Port number on which the server is listening to
+Arg 3: Not Applicable(Can be given anything)
+Arg 4: file that has be retrieved from the server
 
 Q:How to compile? 
-A:run 'make all' inside Debug dir
+A:run 'make clean;make all' inside Debug dir of the corresponding module
 
-Q:How to run server?
+Q:How to run TCP web-server?
 A: ./Webserver <port-no>
 
-Q:How to run webclient?
-
+Q:How to run TCP web-client?
 Test case1:(4 files separated by a new line in fileList.txt)(HTTP Persistent case)
 A: ./WebClient <server-ip> <port-no> p fileList.txt
 
 Test case2(Http non-persistent case):
-A: ./WebClient <server-ip> 20202 np demo.html
+A: ./WebClient <server-ip> <port-no> np demo.html
 
-Readme of UDP Web Server:
-
-Q:How to compile? 
-A:run 'make all' inside Debug dir
-
-Q:How to run server?
+Q:How to run UDP web-server?
 A: ./UdpHttpServer <port-no>
 
-Q:How to run webclient?
-
+Q:How to run UDP web-client?
 Test case1:(small Html file) 
 A: ./udpWebClient <server-ip> <port-no> demo.html
 
 Test case2(Around a megabyte file):
 A: ./udpWebClient <server-ip> <port-no> subtitleFile.txt
-
-PS: All the requested files are written into a file after recieved from the server.
